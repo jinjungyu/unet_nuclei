@@ -16,7 +16,7 @@ docker exec -it {container} jupyter notebook list - 주피터 노트북 서버 �
 ### 오류 대응
 #### 1. 머신 러닝 후 GPU 메모리가 해제되지 않아 out-of-memory 가 발생할 때
 Tensorflow 에서는 아래처럼 말하고 있다.  
-By default, TensorFlow maps nearly all of the GPU memory of all GPUs (subject to CUDA_VISIBLE_DEVICES) visible to the process. This is done to more efficiently use the relatively precious GPU memory resources on the devices by reducing memory fragmentation.
+By default, TensorFlow maps nearly all of the GPU memory of all GPUs (subject to CUDA_VISIBLE_DEVICES) visible to the process. This is done to more efficiently use the relatively precious GPU memory resources on the devices by reducing memory fragmentation.  
 메모리 조각화를 막기 위해 GPU 메모리들에 모두 할당을 해놓는다고 한다.  
 - 해결 방법 : ps -ef | grep python 이나 top 처럼 프로세스를 확인하고, 프로세스를 kill 한다.
 - 예방 방법 : 특정 GPU만 사용하기.
