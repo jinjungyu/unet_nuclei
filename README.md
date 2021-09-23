@@ -24,9 +24,12 @@ By default, TensorFlow maps nearly all of the GPU memory of all GPUs (subject to
 import os 
 # GPU를 아예 못 보게 하려면: 
 os.environ["CUDA_VISIBLE_DEVICES"]='' 
-# GPU 0만 보게 하려면: os.environ["CUDA_VISIBLE_DEVICES"]='0' 
-# GPU 1만 보게 하려면: os.environ["CUDA_VISIBLE_DEVICES"]='0'
-# GPU 0과 1을 보게 하려면: os.environ["CUDA_VISIBLE_DEVICES"]='0,1'
+# GPU 0만 보게 하려면:
+os.environ["CUDA_VISIBLE_DEVICES"]='0' 
+# GPU 1만 보게 하려면:
+os.environ["CUDA_VISIBLE_DEVICES"]='0'
+# GPU 0과 1을 보게 하려면:
+os.environ["CUDA_VISIBLE_DEVICES"]='0,1'
 ```
 ```python
 with tf.device('/device:GPU:0'):
