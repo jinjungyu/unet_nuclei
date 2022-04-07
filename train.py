@@ -88,8 +88,8 @@ model.summary()
 ####################
 
 # Set Callback, Checkpoint
-checkpoint = tf.keras.callbacks.ModelCheckpoint(os.path.join(ROOT_DIR,'unet_nuclei_best.h5'),monitor='val_loss',save_best_only=True)
 callbacks = [
+             tf.keras.callbacks.ModelCheckpoint(os.path.join(ROOT_DIR,'unet_nuclei_best.h5'),monitor='val_loss',save_best_only=True),
              tf.keras.callbacks.EarlyStopping(patience=3,monitor='val_loss'),
              tf.keras.callbacks.TensorBoard(log_dir=os.path.join(ROOT_DIR,'logs'))
 ]

@@ -63,12 +63,12 @@ for i, data_id in tqdm.tqdm(enumerate(test_folders),total=len(test_folders)):
   img = resize(img,(img_height,img_width), mode='constant', preserve_range=True)
   X_test[i] = img
 
-k = np.random.randint(0,i)
-plt.subplot(121)
-imshow(X_train[k])
-plt.subplot(122)
-imshow(np.squeeze(Y_train[k].astype(np.uint8)),cmap='gray')
-plt.show()
+# k = np.random.randint(0,i)
+# plt.subplot(121)
+# imshow(X_train[k])
+# plt.subplot(122)
+# imshow(np.squeeze(Y_train[k].astype(np.uint8)),cmap='gray')
+# plt.show()
 
 X_TRAIN_PATH=os.path.join(PATH_DATASET,'x_train.npy')
 Y_TRAIN_PATH=os.path.join(PATH_DATASET,'y_train.npy')
