@@ -94,7 +94,7 @@ callbacks = [
              tf.keras.callbacks.TensorBoard(log_dir=os.path.join(ROOT_DIR,'logs'))
 ]
 # Train model
-history = model.fit(X_train,Y_train,validation_split=0.1,batch_size=16,epochs=100,callbacks=callbacks)
+history = model.fit(X_train,Y_train,validation_split=0.1,batch_size=16,epochs=3,callbacks=callbacks)
 
 # Evaludate model
 preds_test = model.predict(X_test)
