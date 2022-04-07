@@ -87,15 +87,17 @@ model.compile(optimizer='adam',loss='binary_crossentropy',metrics=['acc'])
 model.summary()
 ####################
 
+model_best_path = os.path.join(ROOT_DIR,'unet_nuclei_best.h5')
 # Set Callback, Checkpoint
 callbacks = [
-             tf.keras.callbacks.ModelCheckpoint(os.path.join(ROOT_DIR,'unet_nuclei_best.h5'),monitor='val_loss',save_best_only=True),
+             tf.keras.callbacks.ModelCheckpoint(model_best_path,monitor='val_loss',save_best_only=True),
              tf.keras.callbacks.EarlyStopping(patience=3,monitor='val_loss'),
              tf.keras.callbacks.TensorBoard(log_dir=os.path.join(ROOT_DIR,'logs'))
 ]
 # Train model
-history = model.fit(X_train,Y_train,validation_split=0.1,batch_size=16,epochs=3,callbacks=callbacks)
+history = model.fit(X_train,Y_train,validation_split=0.1,batch_size=16,epochs=50,callbacks=callbacks)
 
+model.load_weights(model_best_path)
 # Evaludate model
 preds_test = model.predict(X_test)
 preds_test_mask = (preds_test>0.5).astype(np.uint8)
