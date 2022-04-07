@@ -7,11 +7,11 @@ git clone https://github.com/realJun9u/unet_nuclei.git
 ```
 2. Setup Dataset (Extract and Prepare Train,Test Data)
 ```
-python setup_nuclei.py
+python setup.py
 ```
 3. Train Model
 ```
-python train_nuclei.py
+python train.py
 ```
 4. Analyze Result
 ```
