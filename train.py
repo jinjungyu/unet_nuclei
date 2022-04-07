@@ -99,14 +99,29 @@ history = model.fit(X_train,Y_train,validation_split=0.1,batch_size=16,epochs=50
 
 model.load_weights(model_best_path)
 # Evaludate model
+preds_train = model.predict(X_train)
+preds_train_mask = (preds_train>0.5).astype(np.uint8)
 preds_test = model.predict(X_test)
 preds_test_mask = (preds_test>0.5).astype(np.uint8)
 
-# Visualize Prediction
-# indices = np.random.randint(0,X_test.shape[0],20)
-# for idx in indices:
-#   plt.subplot(121)
-#   imshow(X_test[idx])
-#   plt.subplot(122)
-#   imshow(np.squeeze(preds_test_mask[idx]),cmap="gray")
-#   plt.show()
+# Train Prediction and Ground Truth
+indices = np.random.randint(0,X_train.shape[0],10)
+for idx in indices:
+  plt.subplot(121)
+  plt.title("Train Image")
+  imshow(X_train[idx])
+  plt.subplot(122)
+  plt.title("Ground Truth")
+  imshow(np.squeeze(preds_train_mask[idx]),cmap="gray")
+  plt.show()
+
+# Visualize Test Prediction
+indices = np.random.randint(0,X_test.shape[0],10)
+for idx in indices:
+  plt.subplot(121)
+  plt.title("Test Image")
+  imshow(X_test[idx])
+  plt.subplot(122)
+  plt.title("Test Prediction")
+  imshow(np.squeeze(preds_test_mask[idx]),cmap="gray")
+  plt.show()
