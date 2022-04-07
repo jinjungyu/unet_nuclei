@@ -49,7 +49,7 @@ for i, data_id in tqdm.tqdm(enumerate(train_folders),total=len(train_folders)):
   mask = np.zeros((img_height,img_width,1),dtype=np.bool_)
   mask_path = os.path.join(TRAIN_DIR,data_id,'masks')
   for mask_file in next(os.walk(mask_path))[-1]:
-    sample = imread(mask_path+'\\'+mask_file)
+    sample = imread(os.path.join(mask_path,mask_file))
     sample = resize(sample,(img_height,img_width), mode='constant', preserve_range=True)
     sample = np.expand_dims(sample,axis=-1).astype(np.bool_)
     mask = np.maximum(mask,sample)
