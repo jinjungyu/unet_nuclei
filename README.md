@@ -13,7 +13,11 @@ python setup.py
 ```
 python train.py
 ```
-4. Analyze Result
+4. Compare Ground Truth and Train image Prediction. then Visualize Test Prediction
+```
+python evaluate.py
+```
+5. Analyze Result
 ```
 tensorboard --log_dir=logs --host={host} --port={port}
 ```
