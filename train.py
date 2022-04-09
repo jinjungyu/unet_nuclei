@@ -1,8 +1,6 @@
 import tensorflow as tf
 import os
 import numpy as np
-import matplotlib.pyplot as plt
-from skimage.io import imshow
 
 from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Input,Conv2D,Conv2DTranspose,MaxPool2D,concatenate,Dropout,Lambda

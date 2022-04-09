@@ -1,6 +1,7 @@
-## Semantic Segmentation Practice 1
+# Semantic Segmentation - UNet 1
 nuclei Dataset : https://www.kaggle.com/c/data-science-bowl-2018/data
-### How to Setup and Train
+
+## How to Setup and Train
 1. clone repository and download dataset on clone directory
 ```
 git clone https://github.com/realJun9u/unet_nuclei.git
@@ -13,7 +14,7 @@ python setup.py
 ```
 python train.py
 ```
-4. Compare Ground Truth and Train image Prediction. then Visualize Test Prediction
+4. Test Model
 ```
 python evaluate.py
 ```
